@@ -23,7 +23,11 @@ public:
     }
    
 
-    ~manusia();
+    ~manusia()
+    {
+        cout << nama
+            << " mati\n";
+    }
 };
 
 #endif
