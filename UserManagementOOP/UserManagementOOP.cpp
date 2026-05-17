@@ -102,6 +102,7 @@ int main()
 
 	Admin admin("Admin", "admin@gmail.com");
 
+	m2.toggleActivationMember();
 
 	admin.ShowAllMembers(vector<Member>{m1, m2});
 }
