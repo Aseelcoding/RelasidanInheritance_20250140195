@@ -1,6 +1,7 @@
 
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class User 
@@ -35,7 +36,7 @@ public :
 };
 int User::GlobalId = 0;
 
-class Member :User 
+class Member :public User 
 {
 private:
 	bool IsActive;
@@ -59,6 +60,38 @@ public :
 	}
 
 	bool GetStatus() { return IsActive; }
+};
+
+class Admin :public User 
+{
+
+public :
+	Admin(string Name, string Eamil)
+		: User(Name, Eamil) {
+
+	}
+
+	void ShowAllMembers(vector<Member > Members)
+	{
+		for (int i = 0; i < Members.size(); i++) {
+			cout << "Member Number : " << i + 1 << endl;
+			cout << "------------------------" << endl;
+			cout << "ID      : " << Members[i].GetId() << endl;
+			cout << "Name    : " << Members[i].GetName() << endl;
+			cout << "Email   : " << Members[i].GetEmail() << endl;
+			if (Members[i].GetStatus())
+			{
+				cout << "Status  : Active " << endl;
+
+			}
+			else { cout << "Status  : Inactive " << endl; }
+			cout << "------------------------" << endl;
+		}
+	}
+	void toggleActivationMember(Member& member) 
+	{
+		member.toggleActivationMember();
+	}
 };
 int main()
 {
