@@ -96,5 +96,13 @@ public :
 int main()
 {
 
+	Member m1("Aseel", "aseel@gmail.com",true);
+	Member m2("Ali", "ali@gmail.com", false);
+
+
+	Admin admin("Admin", "admin@gmail.com");
+
+
+	admin.ShowAllMembers(vector<Member>{m1, m2});
 }
 
