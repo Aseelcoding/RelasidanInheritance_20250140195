@@ -5,11 +5,13 @@ using namespace std;
 
 class User 
 {
+private:
 	static int GlobalId;
 	int ID = 0;
 	string Name;
 	string Email;
 
+public :
 	User(string Name, string Email) 
 	{
 		this->Email = Email;
@@ -33,6 +35,31 @@ class User
 };
 int User::GlobalId = 0;
 
+class Member :User 
+{
+private:
+	bool IsActive;
+
+public :
+	Member(string Name,string Email,bool IsActive):
+		User(Name,Email)
+	{
+		this->IsActive = IsActive;
+	}
+	void toggleActivationMember() 
+	{
+		if (IsActive) 
+		{
+			IsActive = false;
+		}
+		else 
+		{
+			IsActive = true;
+		}
+	}
+
+	bool GetStatus() { return IsActive; }
+};
 int main()
 {
 
